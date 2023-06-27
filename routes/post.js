@@ -45,7 +45,6 @@ router.post('/posts', authMiddleware, async (req, res) => {
 // 게시글 상세 조회 API
 router.get('/posts/:postId', async (req, res) => {
   const { postId } = req.params;
-  const { user } = res.locals;
   try {
     // MongoDB에서 해당 postId을 가진 게시물을 조회합니다.
     const post = await Posts.findOne({ where: { postId } });

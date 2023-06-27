@@ -10,7 +10,7 @@ const authRouter = require('./routes/auth.js'); // '/routes/auth.js' 파일에�
 
 app.use(express.json()); // 요청의 데이터를 JSON 형식으로 파싱하기 위한 미들웨어 설정
 app.use(cookieParser()); // 쿠키 파싱을 위한 미들웨어 설정
-// commentsRouter,
+
 app.use('/', [userRouter, authRouter, postsRouter]);
 // '/' 경로에 postsRouter, commentsRouter, userRouter, authRouter 미들웨어를 적용합니다.
 // 이 미들웨어들은 각각 '/posts', '/comments', '/users', '/auth' 경로에 대한 요청을 처리합니다.
