@@ -70,24 +70,6 @@ router.patch('/posts/:postId', authMiddleware, async (req, res) => {
   const { user } = res.locals;
 
   try {
-    // title, content가 존재하고 비어있는지 확인합니다.
-    if (title) {
-      if (title.length === 0) {
-        return res.status(400).json({
-          success: false,
-          error: '비어있는 게시물을 허용하지 않습니다.',
-        });
-      }
-    }
-    if (content) {
-      if (content.length === 0) {
-        return res.status(400).json({
-          success: false,
-          error: '비어있는 게시물을 허용하지 않습니다.',
-        });
-      }
-    }
-
     // postId를 기준으로 해당하는 게시물의 존재 여부를 확인합니다.
     const post = await Posts.findOne({ where: { postId } });
 
